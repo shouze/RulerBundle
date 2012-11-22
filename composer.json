@@ -14,7 +14,11 @@
         "ruler/ruler": "dev-master"
     },
     "require-dev": {
-        "atoum/atoum": "dev-master"
+        "atoum/atoum": "dev-master",
+        "hoa/compiler": "dev-master"
+    },
+    "suggest": {
+        "hoa/compiler": "Allows to create readable serialization of rules"
     },
     "autoload":     {
         "psr-0": { "Rezzza\\RulerBundle": "" }
