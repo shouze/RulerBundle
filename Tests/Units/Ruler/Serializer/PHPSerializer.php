@@ -1,6 +1,6 @@
 <?php
 
-namespace Rezzza\RulerBundle\Tests\Units\Ruler;
+namespace Rezzza\RulerBundle\Tests\Units\Ruler\Serializer;
 
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 
