@@ -1,6 +1,6 @@
 <?php
 
-namespace Serializer;
+namespace Rezzza\RulerBundle\Ruler\Serializer;
 
 use Rezzza\RulerBundle\Ruler\Factory;
 use Ruler\Rule;

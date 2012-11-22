@@ -1,6 +1,6 @@
 <?php
 
-namespace Serializer;
+namespace Rezzza\RulerBundle\Ruler\Serializer;
 
 use Ruler\Operator\LogicalOperator;
 use Rezzza\RulerBundle\Ruler\AsserterContainer;
