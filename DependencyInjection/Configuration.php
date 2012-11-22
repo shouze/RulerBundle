@@ -26,6 +26,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('serializer')->defaultValue('rezzza.ruler.serializer.grammar')->end()
                 ->arrayNode('events')
                     ->useAttributeAsKey('name')
                         ->prototype('scalar')

@@ -26,9 +26,12 @@ class RezzzaRulerExtension extends Extension
         $loader->load('event.xml');
         $loader->load('inference.xml');
         $loader->load('ruler.xml');
+        $loader->load('serializer.xml');
 
         $processor = new Processor();
         $config    = $processor->processConfiguration(new Configuration(), $configs);
+
+        $container->setAlias('rezzza.ruler.serializer', $config['serializer']);
 
         $container->setParameter('rezzza.ruler.inferences', $config['inferences']);
         $container->setParameter('rezzza.ruler.events', $config['events']);
