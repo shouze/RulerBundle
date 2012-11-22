@@ -3,6 +3,7 @@
 namespace Rezzza\RulerBundle\Ruler\Serializer;
 
 use Rezzza\RulerBundle\Ruler\Factory;
+use Ruler\Proposition as PropositionInterface;
 use Ruler\Rule;
 
 /**

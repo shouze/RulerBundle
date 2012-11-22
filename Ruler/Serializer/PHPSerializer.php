@@ -5,6 +5,7 @@ namespace Rezzza\RulerBundle\Ruler\Serializer;
 use Ruler\Operator\LogicalOperator;
 use Rezzza\RulerBundle\Ruler\AsserterContainer;
 use Rezzza\RulerBundle\Ruler\Proposition;
+use Ruler\Proposition as PropositionInterface;
 
 /**
  * PHPSerializer
@@ -13,6 +14,8 @@ use Rezzza\RulerBundle\Ruler\Proposition;
  */
 class PHPSerializer implements SerializerInterface
 {
+    private $asserterContainer;
+
     /**
      * @param AsserterContainer $asserterContainer asserterContainer
      */

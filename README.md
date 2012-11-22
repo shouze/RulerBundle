@@ -16,6 +16,11 @@ Roadmap
 
 ```
 rezzza_ruler:
+    serializer: rezzza.ruler.serializer.php # php serialization
+    # "rezzza.ruler.serializer.grammar" will serialize rule at format
+    # (cart.price_total = "30.00" && (cart.created_at >= "2011-06-10" OR ......)
+    # You have to install hoa\compiler on your composer file.
+
     events:
         event.cart.paid: 'Cart paid'
 	inferences:
@@ -67,7 +72,7 @@ echo $rule->evaluate($context) ? 'OK': 'NOPE'; // OK;
 To store rules on a storage, you can serialize it, store it on storage, fetch it from storage, and deserialize it. Context does not stay on storage.
 
 ```php
-$factory = $container->get('rezzza.ruler.factory');
+$serializer = $container->get('rezzza.ruler.serializer');
 
 $rule = new Rule(
     new Operator\LogicalAnd(array(
@@ -76,9 +81,9 @@ $rule = new Rule(
     ))
 );
 
-$data = $factory->serialize($rule); // will return a linear serialization of object.
+$data = $serializer->serialize($rule); // will return a linear serialization of object.
 
-$rule = $factory->unserialize($data); // will be equals to $rule above :).
+$rule = $serializer->unserialize($data); // will be equals to $rule above :).
 ```
 
 # Add an asserter.
