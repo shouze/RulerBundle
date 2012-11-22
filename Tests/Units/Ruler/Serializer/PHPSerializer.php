@@ -2,14 +2,14 @@
 
 namespace Rezzza\RulerBundle\Tests\Units\Ruler;
 
-require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '/../../../../vendor/autoload.php';
 
 use Rezzza\RulerBundle\Tests\Units\Test;
 use Rezzza\RulerBundle\Ruler;
 use Ruler\Rule;
 use Ruler\Operator;
 
-class Factory extends Test
+class PHPSerializer extends Test
 {
     public function testDeserialize()
     {
@@ -23,20 +23,20 @@ class Factory extends Test
         $asserterContainer->add($boolean);
         $asserterContainer->add($date);
 
-        $factory           = new Ruler\Factory($asserterContainer);
+        $serializer = new Ruler\Serializer\PHPSerializer($asserterContainer);
 
         /* ---- a proposition ---- */
         $propo = new Ruler\Proposition('toto', $asserterContainer->get('boolean'), '=', true);
 
-        $this->if($data = $factory->serialize($propo))
-            ->object($factory->deserialize($data))
+        $this->if($data = $serializer->serialize($propo))
+            ->object($serializer->deserialize($data))
             ->isEqualTo($propo);
 
         /* ---- on a rule --- */
         $rule = new Rule($propo);
 
-        $this->if($data = $factory->serialize($rule))
-            ->object($factory->deserialize($data))
+        $this->if($data = $serializer->serialize($rule))
+            ->object($serializer->deserialize($data))
             ->isEqualTo($rule);
 
         /* ---- on a rule + logical operators --- */
@@ -46,9 +46,9 @@ class Factory extends Test
                 $propo,
             ))
         );
-        $data = $factory->serialize($rule);
+        $data = $serializer->serialize($rule);
 
-        $this->object($factory->deserialize($data))
+        $this->object($serializer->deserialize($data))
             ->isEqualTo($rule);
 
         /* ---- on a rule + logical operators + l..... --- */
@@ -62,9 +62,9 @@ class Factory extends Test
                 ))
             ))
         );
-        $data = $factory->serialize($rule);
+        $data = $serializer->serialize($rule);
 
-        $this->object($factory->deserialize($data))
+        $this->object($serializer->deserialize($data))
             ->isEqualTo($rule);
     }
 }
